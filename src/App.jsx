@@ -1,10 +1,11 @@
 import './App.css'
+import HomePage from './components/pages/HomePage'
 
 function App() {
   return (
     <>
-      <div className='bg-blue-600'>
-        Suyana Frontend
+      <div className=''>
+        <HomePage/>
       </div>
     </>
   )
