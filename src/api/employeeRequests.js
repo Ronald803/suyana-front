@@ -1,4 +1,4 @@
-import { config } from "../config"
+import { config } from "../global"
 
 export async function loginBackend(credentials) {
   const response = await fetch(config.backendUrl + '/api/auth/login', {

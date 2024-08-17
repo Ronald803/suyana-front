@@ -4,6 +4,7 @@ import CalendarPage from './components/pages/CalendarPage'
 import EmployeesPage from './components/pages/EmployeesPage'
 import HomePage from './components/pages/HomePage'
 import PatientsPage from './components/pages/PatientsPage'
+import Navbar from './components/organisms/Navbar'
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -20,6 +21,7 @@ function App() {
     <>
       <div>
         <BrowserRouter>
+          <Navbar/>
           <AppRoutes />
         </BrowserRouter>
       </div>

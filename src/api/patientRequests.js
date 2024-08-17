@@ -1,4 +1,4 @@
-import { config } from "../config";
+import { config } from "../global";
 
 export async function createPatientBackend(newPatient) {
   const token = localStorage.getItem('t')

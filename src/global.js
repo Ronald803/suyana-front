@@ -18,5 +18,10 @@ export const options = {
     { name: 'Mañana', value: 'morning' },
     { name: 'Tarde', value: 'afternoon' },
     { name: 'Día completo', value: 'allDay' }
+  ],
+  navbar: [
+    { optionName: 'Calendario', optionPath: '/calendar'},
+    { optionName: 'Pacientes', optionPath: '/patients'},
+    { optionName: 'Terapeutas', optionPath: '/employees'}
   ]
 }
