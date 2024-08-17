@@ -15,3 +15,16 @@ export async function loginBackend(credentials) {
   }
   return false
 }
+
+export async function createEmployeeBackend(newEmployee){
+  const response = await fetch(config.backendUrl + '/api/staff', {
+    method: 'POST',
+    headers: [["Content-Type", "application/json"]],
+    body: JSON.stringify(newEmployee)
+  })
+  if(response.status == 201) {
+    const bodyAnswer = await response.json()
+    return bodyAnswer.body
+  }
+  return false
+}
