@@ -1,14 +1,18 @@
-import CreateEmployeeForm from "../molecules/CreateEmployeeForm"
+import { useEffect } from "react"
 import LoginForm from "../molecules/LoginForm"
-import NewPatientForm from "../molecules/NewPatientForm"
+import { useNavigate } from "react-router-dom"
 
 function HomePage() {
+  const navigate = useNavigate()
+  useEffect(()=>{
+    const token = localStorage.getItem('t')
+    if(token.length > 0){
+      navigate('/calendar')
+    }
+  },[])
   return (
     <div>
-      <div>HomePage</div>
       <LoginForm/>
-      <CreateEmployeeForm/>
-      <NewPatientForm/>
     </div>
   )
 }

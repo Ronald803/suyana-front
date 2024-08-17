@@ -35,7 +35,7 @@ function CreateEmployeeForm() {
 		}
 	}
 	return (
-		<div>
+		<div className='max-w-96 p-4 border rounded-lg'>
 			<div>
 				<div>
 					<OneLineLabelInput id='name' name='Nombre' selectRef={nameRef} type='string' />
@@ -47,7 +47,9 @@ function CreateEmployeeForm() {
 					<OneLineLabelInput id='email' name='Email' selectRef={emailRef} type='text' />
 					<OneLineLabelInput id='password' name='Contraseña' selectRef={passwordRef} type='password' />
 				</div>
-				<MainButtonForm buttonText='Registrar Usuario' onClick={handleCreateEmployee} />
+				<div className='pt-4'>
+					<MainButtonForm buttonText='Registrar Usuario' onClick={handleCreateEmployee} />
+				</div>
 			</div>
 		</div>
 	)
