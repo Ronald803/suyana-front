@@ -31,7 +31,7 @@ function NewPatientForm() {
     }
   }
   return (
-    <div>
+    <div className='max-w-96 p-4 border rounded-lg'>
       <div>
         <div>
           <OneLineLabelInput id='name' name='Nombre' selectRef={nameRef} type='string' />

@@ -6,12 +6,14 @@ import HomePage from './components/pages/HomePage'
 import PatientsPage from './components/pages/PatientsPage'
 import Navbar from './components/organisms/Navbar'
 import NewEmployeePage from './components/pages/NewEmployeePage'
+import PatientDetailPage from './components/pages/PatientDetailPage'
 
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: '/', element: <HomePage /> },
     { path: '/calendar', element: <CalendarPage /> },
     { path: '/patients', element: <PatientsPage /> },
+    { path: '/patients/:patiendId', element: <PatientDetailPage /> },
     { path: '/employees', element: <EmployeesPage /> },
     { path: '/new-user', element: <NewEmployeePage /> }
   ])
