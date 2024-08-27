@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useGetResourceHook from "../../api/useGetResourceHook"
-import MainOptionButton from "../atoms/MainOptionButton";
+import SingleOptionGrid from "../atoms/SingleOptionGrid";
 
 function PatientsGrid() {
   const navigate = useNavigate()
@@ -21,28 +21,15 @@ function PatientsGrid() {
                 ?
                 <div>Ocurrió un error</div>
                 :
-                <table className="">
-                  <thead className="border border-primary">
-                    <tr>
-                      <th className="border-e border-primary">Nº</th>
-                      <th>Pacientes</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                      dataResource?.map((patient, index) => {
-                        return (
-                          <tr key={index} className="border border-primary" >
-                            <td className="p-2 border-e border-primary">{index + 1}.</td>
-                            <td className="p-2 border-e border-primary">{patient.name}</td>
-                            <td className="p-2"><MainOptionButton buttonText="Info" onClick={handleChoosePatient} optionKey={index} /></td>
-                          </tr>
-                        )
-                      })
-                    }
-                  </tbody>
-                </table>
+                <div className="">
+                  {
+                    dataResource?.map((patient, index) => {
+                      return (
+                        <SingleOptionGrid icon='😷' title={patient.name} tag={patient.age + ' años'} handleClick={handleChoosePatient} index={index} key={index} />
+                      )
+                    })
+                  }
+                </div>
             }
           </div>
       }
