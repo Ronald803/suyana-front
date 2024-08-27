@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import NewPatientForm from '../molecules/NewPatientForm'
 import PatientsGrid from "../organisms/PatientsGrid"
+import AddNewPatientOption from "../organisms/AddNewPatientOption"
 
 function PatientsPage() {
   const navigate = useNavigate()
@@ -20,7 +20,7 @@ function PatientsPage() {
         {
           rol == "administrador"
           &&
-          <NewPatientForm />
+          <AddNewPatientOption />
         }
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import EmployeesGrid from "../organisms/EmployeesGrid"
-import CreateEmployeeForm from "../molecules/CreateEmployeeForm"
+import AddNewEmployeeOption from "../organisms/AddNewEmployeeOption"
 
 function EmployeesPage() {
   const navigate = useNavigate()
@@ -16,11 +16,11 @@ function EmployeesPage() {
   return (
     <div className="flex justify-center">
       <div>
-        <EmployeesGrid/>
+        <EmployeesGrid />
         {
-          rol=="administrador"
+          rol == "administrador"
           &&
-          <CreateEmployeeForm/>
+          <AddNewEmployeeOption />
         }
       </div>
     </div>
