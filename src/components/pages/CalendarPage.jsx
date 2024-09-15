@@ -1,5 +1,11 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import 'react-big-calendar/lib/css/react-big-calendar.css'
+import dayjs from "dayjs"
+import "dayjs/locale/es"
+import CalendarComponent from "../organisms/Calendar"
+
+dayjs.locale("es")
 
 function CalendarPage() {
   const navigate = useNavigate()
@@ -10,7 +16,11 @@ function CalendarPage() {
     }
   }, [])
   return (
-    <div>CalendarPage</div>
+    <div>
+      <div className="w-96 h-screen">
+        <CalendarComponent/>
+      </div>
+    </div>
   )
 }
 
