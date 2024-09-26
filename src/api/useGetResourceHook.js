@@ -34,7 +34,7 @@ function useGetResourceHook(resourceName, queryFilter) {
       }
     };
     fetchResource();
-  }, [])
+  }, [queryFilter])
   return { dataResource, loading, error }
 }
 

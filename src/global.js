@@ -5,10 +5,10 @@ export const config = {
 
 export const options = {
   specialties: [
-    { name: 'Psicología', value: 'psychology' },
-    { name: 'Psicopedagogía', value: 'psychopedagogy' },
-    { name: 'Fisioterapia y Psicomotricidad', value: 'physiotherapy' },
-    { name: 'Fonoaudiología', value: 'speechTherapy' }
+    { name: 'Psicología', value: 'psychology', color: 'red-500' },
+    { name: 'Psicopedagogía', value: 'psychopedagogy', color: 'green-500' },
+    { name: 'Fisioterapia y Psicomotricidad', value: 'physiotherapy', color: 'yellow-600' },
+    { name: 'Fonoaudiología', value: 'speechTherapy', color: 'blue-500' }
   ],
   branch: [
     { name: 'La Paz', value: 'laPaz' },
