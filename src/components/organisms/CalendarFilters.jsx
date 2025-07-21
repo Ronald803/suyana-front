@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useRef } from "react";
-import FilterDropdown from "../molecules/FilterDropdown";
 import MainButtonForm from "../atoms/MainButtonForm";
 import OneLineLabelSelect from "../atoms/OneLineLabelSelect";
 import { options } from "../../global";
@@ -31,15 +30,17 @@ function CalendarFilters(props) {
           options={options?.specialties}
           selectRef={specialtyDropdownRef}
         />
-        <FilterDropdown
-          resourceName="patient"
+        <OneLineLabelSelect
+          id="patient"
           name="Paciente"
-          filterRef={patientDropdownRef}
+          options={props.patients}
+          selectRef={patientDropdownRef}
         />
-        <FilterDropdown
-          resourceName="staff"
+        <OneLineLabelSelect
+          id="staff"
           name="Terapeutas"
-          filterRef={staffDropdownRef}
+          options={props.doctors}
+          selectRef={staffDropdownRef}
         />
         <div className="pt-2">
           <MainButtonForm buttonText="Filtrar" onClick={handleFilterClick} />
@@ -53,4 +54,6 @@ export default CalendarFilters;
 
 CalendarFilters.propTypes = {
   setQuery: PropTypes.func,
+  patients: PropTypes.array,
+  doctors: PropTypes.array,
 };

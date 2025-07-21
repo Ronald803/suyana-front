@@ -6,6 +6,7 @@ import "dayjs/locale/es";
 import CalendarComponent from "../organisms/Calendar";
 import CalendarFilters from "../organisms/CalendarFilters";
 import useGetResourceHook from "../../api/useGetResourceHook";
+import NewAppointmentForm from "../molecules/NewAppointmentForm";
 
 dayjs.locale("es");
 
@@ -16,6 +17,8 @@ function CalendarPage() {
     "appointment",
     query
   );
+  const { dataResource: patients } = useGetResourceHook("patient", "");
+  const { dataResource: doctors } = useGetResourceHook("staff", "");
   useEffect(() => {
     const token = localStorage.getItem("t");
     if (token.length < 1) {
@@ -25,7 +28,16 @@ function CalendarPage() {
   return (
     <div className="md:flex">
       <div className="md:w-1/3">
-        <CalendarFilters setQuery={setQuery} />
+        <CalendarFilters
+          setQuery={setQuery}
+          patients={patients}
+          doctors={doctors}
+        />
+        {/* <NewAppointmentForm
+          patients={patients}
+          doctors={doctors}
+          appointments={events}
+        /> */}
       </div>
       <div className="md:w-2/3">
         <CalendarComponent events={events} loading={loading} />

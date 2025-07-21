@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function OneLineLabelSelect(props) {
+function OneLineLabelOnSelect(props) {
   return (
     <div className="flex pt-1">
       <label className="w-1/3" htmlFor={props.id}>
@@ -10,7 +10,7 @@ function OneLineLabelSelect(props) {
         className="w-2/3 rounded-lg border border-tertiary"
         name={props.id}
         id={props.id}
-        ref={props.selectRef}
+        onChange={props.onSelect}
       >
         <option value="">Elige una opción</option>
         {props.options?.map((option, index) => (
@@ -23,14 +23,11 @@ function OneLineLabelSelect(props) {
   );
 }
 
-export default OneLineLabelSelect;
+export default OneLineLabelOnSelect;
 
-OneLineLabelSelect.propTypes = {
+OneLineLabelOnSelect.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
+  onSelect: PropTypes.func,
   options: PropTypes.array,
-  selectRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any }),
-  ]),
 };
