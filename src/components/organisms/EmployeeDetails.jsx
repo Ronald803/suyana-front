@@ -1,42 +1,72 @@
-import PropTypes from 'prop-types';
-import PersonSingleDetail from '../atoms/PersonSingleDetail';
-import MainOptionButton from '../atoms/MainOptionButton';
+import PropTypes from "prop-types";
+import PersonSingleDetail from "../atoms/PersonSingleDetail";
+import MainOptionButton from "../atoms/MainOptionButton";
+import { useState } from "react";
 
 function EmployeeDetails(props) {
+  const [isDoctorDetailsOpen, setIsDoctorDetailsOpen] = useState(false);
+  const handleToggleDetails = () => {
+    setIsDoctorDetailsOpen(!isDoctorDetailsOpen);
+  };
   return (
-    <div className='p-1'>
-      <div className='border-b border-primary'>
-        <div className='pt-2 pb-1 text-center text-primary font-bold'>Información Básica de Contacto</div>
-        <PersonSingleDetail icon='👤' detailTitle='Nombre' detailInfo={props.employee?.name} />
-        <PersonSingleDetail icon='📞' detailTitle='Celular' detailInfo={props.employee?.phone} />
-        <PersonSingleDetail icon='🏠' detailTitle='Dirección' detailInfo={props.employee?.address} />
-        <PersonSingleDetail icon='📨' detailTitle='Correo Electrónico' detailInfo={props.employee?.email} />
+    <div className="p-1 border border-primary rounded-md m-1">
+      <div className="flex flex-row">
+        <div className="basis-3/4">
+          <PersonSingleDetail
+            icon="👤"
+            detailTitle="Nombre"
+            detailInfo={props.employee?.name}
+          />
+        </div>
+        <div className="basis-1/4">
+          <MainOptionButton
+            buttonText={isDoctorDetailsOpen ? "🔺" : "🔻"}
+            onClick={handleToggleDetails}
+            optionKey={1}
+          />
+        </div>
       </div>
-      <div className='border-b border-primary'>
-        <div className='pt-2 pb-1 text-center text-primary font-bold'>Información Laboral</div>
-        <PersonSingleDetail icon='🩺' detailTitle='Especialidad' detailInfo={props.employee?.specialty} />
-        <PersonSingleDetail icon='🏥' detailTitle='Sucursal' detailInfo={props.employee?.branch[0]} />
-        <PersonSingleDetail icon='⏰' detailTitle='Disponibilidad' detailInfo={props.employee?.availability} />
-      </div>
-      <div className='border-b border-primary'>
-        <div className='pt-2 pb-1 text-center text-primary font-bold'>Pacientes</div>
-        {
-          props.employee?.patients.map((patient, index) => {
-            return (
-              <div className='flex p-1 border-b border-primary' key={index}>
-                <div><MainOptionButton buttonText='Mas info' onClick={console.log} optionKey={patient.sessions} /></div>
-                <div className='py-1 px-2'>{patient.name}</div>
-              </div>
-            )
-          })
-        }
-      </div>
+      {isDoctorDetailsOpen && (
+        <div>
+          <div className="border-b border-primary">
+            <div className="pt-1 pb-1 pl-2 text-primary font-bold">
+              Información de Contacto
+            </div>
+
+            <PersonSingleDetail
+              icon="📞"
+              detailTitle="Celular"
+              detailInfo={props.employee?.phone}
+            />
+            <PersonSingleDetail
+              icon="🏠"
+              detailTitle="Dirección"
+              detailInfo={props.employee?.address}
+            />
+            <PersonSingleDetail
+              icon="📨"
+              detailTitle="Correo Electrónico"
+              detailInfo={props.employee?.email}
+            />
+          </div>
+          <div className="border-b border-primary">
+            <div className="pt-1 pb-1 pl-2 text-primary font-bold">
+              Información Laboral
+            </div>
+            <PersonSingleDetail
+              icon="🩺"
+              detailTitle="Especialidad"
+              detailInfo={props.employee?.specialty.name}
+            />
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default EmployeeDetails
+export default EmployeeDetails;
 
 EmployeeDetails.propTypes = {
-  employee: PropTypes.object
-}
+  employee: PropTypes.object,
+};

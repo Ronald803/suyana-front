@@ -1,27 +1,31 @@
-import PropTypes from 'prop-types';
-import MainOptionButton from './MainOptionButton'
+import PropTypes from "prop-types";
+import MainOptionButton from "./MainOptionButton";
 
 function SingleOptionGrid(props) {
   return (
     <div className="flex py-1 border-b border-primary">
-      <div className='pt-1 text-lg'>{props.icon}</div>
+      <div className="pt-1 text-lg">{props.icon}</div>
       <div className="w-full px-2">
         <div>{props.title}</div>
-        <div className="text-xs">{props.tag}</div>
+        <div className="text-xs">{props.tag.name}</div>
       </div>
       <div className="pt-1">
-        <MainOptionButton buttonText="Info" onClick={props.handleClick} optionKey={props.index} />
+        <MainOptionButton
+          buttonText="Info"
+          onClick={props.handleClick}
+          optionKey={props.index}
+        />
       </div>
     </div>
-  )
+  );
 }
 
-export default SingleOptionGrid
+export default SingleOptionGrid;
 
 SingleOptionGrid.propTypes = {
   icon: PropTypes.string,
   title: PropTypes.string,
-  tag: PropTypes.string,
+  tag: PropTypes.object,
   handleClick: PropTypes.func,
-  index: PropTypes.number
-}
+  index: PropTypes.number,
+};

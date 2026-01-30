@@ -1,6 +1,5 @@
 export const config = {
-  //backendUrl: "https://suyana-api.vercel.app",
-  backendUrl: "http://localhost:4000",
+  backendUrl: "https://nae-backend.vercel.app",
 };
 
 export const options = {
