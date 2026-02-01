@@ -12,7 +12,7 @@ function ScheduleSelector({ defaultValue, onSelect, options, name, id }) {
     onSelect?.(e.target.value);
   };
   useEffect(() => {
-    if (!selectedValue && options) {
+    if (!selectedValue && options && options.lenght > 0) {
       setSelectedValue(options[0].value);
       onSelect?.(options[0].value);
     }
@@ -26,6 +26,7 @@ function ScheduleSelector({ defaultValue, onSelect, options, name, id }) {
         value={selectedValue}
         onChange={handleChange}
       >
+        <option value="">Elige una opción</option>
         {options?.map((option, index) => (
           <option value={option.value} key={index}>
             {option.name}

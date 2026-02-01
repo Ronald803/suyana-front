@@ -30,11 +30,11 @@ function NewAppointmentForm({
     startHour: null,
   });
   useEffect(() => {
-    const specialtyFound = specialties.find((specialty) => {
-      return specialty._id === specialtySelected;
+    const specialtyFound = specialties?.find((specialty) => {
+      return specialty.value === specialtySelected;
     });
-    setSpecialty(specialtyFound.name);
-  }, [specialtySelected]);
+    setSpecialty(specialtyFound?.name);
+  }, [specialtySelected, specialties]);
   useEffect(() => {
     setDoctorOptions(doctors);
     setPatientOptions(
@@ -44,11 +44,11 @@ function NewAppointmentForm({
     );
     setSelected((a) => ({
       ...a,
-      day: day.key,
+      day: day.value,
       startHour: hour,
       specialty: specialtySelected,
     }));
-  }, [cellSelected]);
+  }, [cellSelected, specialties]);
 
   useEffect(() => {
     const doctorsWithSpecialtySelected = [];
