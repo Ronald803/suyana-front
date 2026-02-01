@@ -1,21 +1,29 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-function MainButtonForm(props) {
+function MainButtonForm({ onClick, buttonText, disabled = false }) {
   return (
-    <div className='text-center py-1 w-full text-sm'>
+    <div className="text-center py-1 w-full text-sm">
       <button
-        className={'py-2 px-8 rounded-lg text-white hover:bg-fourth hover:text-black w-full border border-white bg-primary'}
-        onClick={props.onClick}
+        disabled={disabled}
+        className="
+          py-2 px-8 w-full rounded-lg border text-white
+          bg-primary border-white
+          hover:bg-fourth hover:text-black
+          disabled:bg-gray-400 disabled:border-gray-400
+          disabled:text-gray-700 disabled:cursor-not-allowed
+          disabled:hover:bg-gray-400
+        "
+        onClick={onClick}
       >
-        {props.buttonText}
+        {buttonText}
       </button>
     </div>
-  )
+  );
 }
 
-export default MainButtonForm
+export default MainButtonForm;
 
 MainButtonForm.propTypes = {
   buttonText: PropTypes.string,
-  onClick: PropTypes.func
-}
+  onClick: PropTypes.func,
+};
