@@ -22,8 +22,18 @@ function useGetResourceHook(resourceName, queryFilter) {
           localStorage.setItem("t", "");
           navigate("/");
         }
+        const data = await response.json();
+        if (
+          response.status == 500 &&
+          (data?.body?.error == "jwt expired" ||
+            data?.body?.error == "invalid token")
+        ) {
+          localStorage.setItem("t", "");
+          localStorage.setItem("r", "");
+          localStorage.setItem("n", "");
+          navigate("/");
+        }
         if (response.ok) {
-          const data = await response.json();
           setDataResource(data.body);
           setLoading(false);
         } else {
