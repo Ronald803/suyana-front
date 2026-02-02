@@ -18,6 +18,7 @@ function CreateEmployeeForm() {
   const passwordRef = useRef(null);
   const phoneRef = useRef(null);
   const specialtyRef = useRef(null);
+  const birthdayRef = useRef(null);
 
   const handleCreateEmployee = async () => {
     const newEmployee = {
@@ -27,6 +28,7 @@ function CreateEmployeeForm() {
       password: passwordRef.current.value,
       phone: phoneRef.current.value,
       specialty: specialtyRef.current.value,
+      birthday: birthdayRef.current.value,
     };
     const answer = await createEmployeeBackend(newEmployee);
     if (answer) {
@@ -71,6 +73,12 @@ function CreateEmployeeForm() {
             name="Email"
             selectRef={emailRef}
             type="text"
+          />
+          <OneLineLabelInput
+            id="birthday"
+            name="F. Nacimiento"
+            selectRef={birthdayRef}
+            type="date"
           />
           <OneLineLabelInput
             id="password"
