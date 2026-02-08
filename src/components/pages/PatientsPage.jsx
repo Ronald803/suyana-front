@@ -14,7 +14,7 @@ function PatientsPage() {
     }
   }, []);
   return (
-    <div className="flex justify-center">
+    <div>
       <div>
         {rol == "doctor" && <AddNewPatientOption />}
         <PatientsGrid />

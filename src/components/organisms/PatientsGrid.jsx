@@ -1,5 +1,5 @@
 import useGetResourceHook from "../../api/useGetResourceHook";
-import PatientDetails from "./PatientDetails";
+import PatientDetails from "./patient/PatientDetails";
 
 function PatientsGrid() {
   const { dataResource, loading, error } = useGetResourceHook("patient", "");
@@ -12,7 +12,7 @@ function PatientsGrid() {
           {error ? (
             <div>Ocurrió un error</div>
           ) : (
-            <div className="">
+            <div className="px-1">
               {dataResource?.map((patient, index) => {
                 return <PatientDetails patient={patient} key={index} />;
               })}

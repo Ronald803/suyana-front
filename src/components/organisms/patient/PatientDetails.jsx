@@ -1,21 +1,22 @@
 import PropTypes from "prop-types";
-import PersonSingleDetail from "../atoms/PersonSingleDetail";
+import PersonSingleDetail from "../../atoms/PersonSingleDetail";
 import { useState } from "react";
-import MainOptionButton from "../atoms/MainOptionButton";
+import MainOptionButton from "../../atoms/MainOptionButton";
+import { PatientTreatments } from "./PatientTreatments";
 
-function PatientDetails(props) {
+function PatientDetails({ patient }) {
   const [isPatientDetailsOpen, setIsPatientDetailsOpen] = useState(false);
   const handleToggleDetails = () => {
     setIsPatientDetailsOpen(!isPatientDetailsOpen);
   };
   return (
-    <div className="p-1 border border-primary rounded-md m-1">
+    <div className="p-1 mb-1 border border-primary rounded-md">
       <div className="flex flex-row ">
         <div className="basis-3/4">
           <PersonSingleDetail
             icon="👤"
             detailTitle="Nombre"
-            detailInfo={props.patient.name}
+            detailInfo={patient.name}
           />
         </div>
         <div className="basis-1/4">
@@ -35,12 +36,12 @@ function PatientDetails(props) {
             <PersonSingleDetail
               icon="📞"
               detailTitle="Celular"
-              detailInfo={props.patient.phone}
+              detailInfo={patient.phone}
             />
             <PersonSingleDetail
               icon="🎂"
               detailTitle="Nacimiento"
-              detailInfo={props.patient.birthday}
+              detailInfo={patient.birthday}
             />
           </div>
           <div className="border-b border-primary">
@@ -50,9 +51,10 @@ function PatientDetails(props) {
             <PersonSingleDetail
               icon="🗒️"
               detailTitle="Diagnóstico General"
-              detailInfo={props.patient.diagnosis}
+              detailInfo={patient.diagnosis}
             />
           </div>
+          <PatientTreatments patient={patient} />
         </div>
       )}
     </div>
