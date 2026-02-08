@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from "react";
-import MainButtonForm from "../atoms/MainButtonForm";
-import useDeleteResourceHook from "../../api/useDeleteResourceHook";
+import React from "react";
+import { ReportForm } from "./ReportForm";
+import { useAuth } from "../../hooks/useAuth";
+import { RemoveAppointmentButton } from "./buttons/RemoveAppointmentButton";
 
 function AppointmentSelected({ cellSelected, setIsOpen }) {
   const { day, hour, appointment } = cellSelected;
-  const { deleteResource, isLoading, isError, isSuccessful } =
-    useDeleteResourceHook();
-  const handleRemoveAppointment = () => {
-    deleteResource("appointment", appointment.appointmentId);
-  };
-  useEffect(() => {
-    if (!isLoading && isSuccessful) {
-      setIsOpen(false);
-    }
-  }, [isLoading, isSuccessful]);
+  const { isAdmin, userName } = useAuth();
+
   return (
     <div className="max-w-96 p-4 border rounded-lg">
       <div>
@@ -37,10 +30,18 @@ function AppointmentSelected({ cellSelected, setIsOpen }) {
           <p className="w-1/3 font-medium">Terapeuta</p>
           <p className="w-2/3">{appointment.doctorName}</p>
         </div>
+        <ReportForm
+          appointment={appointment}
+          day={day}
+          isAdmin={isAdmin}
+          userName={userName}
+          setIsOpen={setIsOpen}
+        />
       </div>
-      <MainButtonForm
-        buttonText="Eliminar Reserva"
-        onClick={handleRemoveAppointment}
+      <RemoveAppointmentButton
+        appointment={appointment}
+        isAdmin={isAdmin}
+        setIsOpen={setIsOpen}
       />
     </div>
   );

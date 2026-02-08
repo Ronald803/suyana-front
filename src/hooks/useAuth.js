@@ -1,10 +1,10 @@
 export const useAuth = () => {
   const rol = localStorage.getItem("r");
-  const name = localStorage.getItem("n");
+  const userName = localStorage.getItem("n");
   const token = localStorage.getItem("t");
   return {
     rol,
-    name,
+    userName,
     token,
     isAuthenticated: !!token,
     isAdmin: rol === "administrador",
