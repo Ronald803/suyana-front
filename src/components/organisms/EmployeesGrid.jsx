@@ -4,7 +4,7 @@ import EmployeeDetails from "./employee/EmployeeDetails";
 function EmployeesGrid() {
   const { dataResource, loading, error } = useGetResourceHook("staff", "");
   return (
-    <div className="py-1 w-full">
+    <div className="py-1">
       {loading ? (
         <div>Cargando...</div>
       ) : (
@@ -12,7 +12,7 @@ function EmployeesGrid() {
           {error ? (
             <div>Ocurrió un error</div>
           ) : (
-            <div className="">
+            <div>
               {dataResource?.map((employee, index) => {
                 return <EmployeeDetails employee={employee} key={index} />;
               })}
