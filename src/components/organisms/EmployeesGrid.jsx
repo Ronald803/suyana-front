@@ -1,5 +1,5 @@
 import useGetResourceHook from "../../api/useGetResourceHook";
-import EmployeeDetails from "./EmployeeDetails";
+import EmployeeDetails from "./employee/EmployeeDetails";
 
 function EmployeesGrid() {
   const { dataResource, loading, error } = useGetResourceHook("staff", "");

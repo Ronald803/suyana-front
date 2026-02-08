@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
-import PersonSingleDetail from "../atoms/PersonSingleDetail";
-import MainOptionButton from "../atoms/MainOptionButton";
+import PersonSingleDetail from "../../atoms/PersonSingleDetail";
+import MainOptionButton from "../../atoms/MainOptionButton";
 import { useState } from "react";
+import { PatientsEmployee } from "./PatientsEmployee";
 
-function EmployeeDetails(props) {
+function EmployeeDetails({ employee }) {
   const [isDoctorDetailsOpen, setIsDoctorDetailsOpen] = useState(false);
   const handleToggleDetails = () => {
     setIsDoctorDetailsOpen(!isDoctorDetailsOpen);
@@ -15,7 +16,7 @@ function EmployeeDetails(props) {
           <PersonSingleDetail
             icon="👤"
             detailTitle="Nombre"
-            detailInfo={props.employee?.name}
+            detailInfo={employee?.name}
           />
         </div>
         <div className="basis-1/4">
@@ -36,17 +37,17 @@ function EmployeeDetails(props) {
             <PersonSingleDetail
               icon="📞"
               detailTitle="Celular"
-              detailInfo={props.employee?.phone}
+              detailInfo={employee?.phone}
             />
             <PersonSingleDetail
               icon="🏠"
               detailTitle="Dirección"
-              detailInfo={props.employee?.address}
+              detailInfo={employee?.address}
             />
             <PersonSingleDetail
               icon="📨"
               detailTitle="Correo Electrónico"
-              detailInfo={props.employee?.email}
+              detailInfo={employee?.email}
             />
           </div>
           <div className="border-b border-primary">
@@ -56,9 +57,10 @@ function EmployeeDetails(props) {
             <PersonSingleDetail
               icon="🩺"
               detailTitle="Especialidad"
-              detailInfo={props.employee?.specialty.name}
+              detailInfo={employee?.specialty.name}
             />
           </div>
+          <PatientsEmployee employee={employee} />
         </div>
       )}
     </div>
