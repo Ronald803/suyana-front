@@ -10,6 +10,7 @@ export default {
       secondary: "#002172",
       tertiary: "#012A90",
       fourth: "#FFFFF",
+      fifth: "#164CD1",
     },
     fontFamily: {
       Montserrat: ["Montserrat", "sans-serif"],

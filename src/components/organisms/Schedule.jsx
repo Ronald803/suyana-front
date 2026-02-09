@@ -19,7 +19,7 @@ function Schedule({
 
   return (
     <div className="w-full">
-      <table className="border-collapse border border-gray-300 text-xs w-full text-center">
+      <table className="table-fixed border-collapse border border-gray-300 text-xs w-full text-center">
         <thead>
           <tr className="bg-gray-200 text-gray-700">
             <th className="border border-gray-300 py-0.5 text-center">Hora</th>

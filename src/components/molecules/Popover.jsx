@@ -20,7 +20,7 @@ export default function Popover({ isOpen, setIsOpen, children }) {
           <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm" />
           <div
             ref={popoverRef}
-            className="relative z-50 bg-white rounded-lg shadow-xl p-6 w-full max-w-sm"
+            className="relative z-50 bg-white rounded-lg shadow-xl p-2 mx-1 w-full max-w-sm"
           >
             <button
               onClick={() => setIsOpen(false)}
