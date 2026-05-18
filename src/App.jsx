@@ -9,6 +9,7 @@ import PatientDetailPage from "./components/pages/PatientDetailPage";
 import EmployeeDetailPage from "./components/pages/EmployeeDetailPage";
 import SchedulePage from "./components/pages/SchedulePage";
 import LoginForm from "./components/molecules/LoginForm";
+import MyAccount from "./components/pages/MyAccount/MyAccount";
 
 const AppRoutes = () => {
   return useRoutes([
@@ -21,6 +22,7 @@ const AppRoutes = () => {
         { path: "/employees", element: <EmployeesPage /> },
         { path: "/employees/:employeeId", element: <EmployeeDetailPage /> },
         { path: "/new-user", element: <NewEmployeePage /> },
+        { path: "/my-account", element: <MyAccount /> },
       ],
     },
     { path: "/", element: <HomePage /> },

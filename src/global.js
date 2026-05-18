@@ -1,5 +1,6 @@
 export const config = {
   backendUrl: "https://nae-backend.vercel.app",
+  //backendUrl: "http://localhost:4000",
 };
 
 export const options = {
@@ -16,6 +17,7 @@ export const options = {
     { optionName: "Calendario", optionPath: "/calendar" },
     { optionName: "Pacientes", optionPath: "/patients" },
     { optionName: "Terapeutas", optionPath: "/employees" },
+    { optionName: "Mi Perfil", optionPath: "/my-account" },
   ],
   parameters: [
     { name: "Paciente", value: "patientName" },
