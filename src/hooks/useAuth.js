@@ -5,6 +5,7 @@ export const useAuth = () => {
   const address = localStorage.getItem("address");
   const phone = localStorage.getItem("phone");
   const token = localStorage.getItem("t");
+  const specialtyId = localStorage.getItem("specialtyId");
   return {
     rol,
     userName,
@@ -14,5 +15,6 @@ export const useAuth = () => {
     email,
     address,
     phone,
+    specialtyId,
   };
 };

@@ -7,11 +7,12 @@ import useGetResourceHook from "../../api/useGetResourceHook";
 import { options } from "../../global";
 import AppointmentSelected from "../molecules/AppointmentSelected";
 import { useGetSpecialties } from "../../hooks/useGetSpecialties";
+import { useAuth } from "../../hooks/useAuth";
 
 function SchedulePage() {
   const specialties = useGetSpecialties();
-
-  const [specialtySelected, setSpecialtySelected] = useState(null);
+  const { specialtyId } = useAuth();
+  const [specialtySelected, setSpecialtySelected] = useState(specialtyId);
   const [dataToShow, setDataToShow] = useState(options.parameters[0].value);
   const [isScheduleFormOpen, setIsScheduleFormOpen] = useState(false);
   const [cellSelected, setCellSelected] = useState(null);
