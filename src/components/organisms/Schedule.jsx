@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { options } from "../../global";
 import { formatCellTextForSchedule } from "../../utils/format";
+import { useAuth } from "../../hooks/useAuth";
 
 function Schedule({
   specialtySelected,
@@ -9,7 +10,9 @@ function Schedule({
   setCellSelected,
   schedule,
 }) {
+  const { isAdmin } = useAuth();
   const handleOnClickCell = (hour, day, appointment) => {
+    if (!appointment && !isAdmin) return null;
     setIsScheduleFormOpen(true);
     setCellSelected({ hour, day, appointment });
   };
