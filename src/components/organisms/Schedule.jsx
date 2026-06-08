@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { options } from "../../global";
+import { formatCellTextForSchedule } from "../../utils/format";
 
 function Schedule({
   specialtySelected,
@@ -48,7 +49,9 @@ function Schedule({
                     )
                   }
                 >
-                  {schedule[hour][day.value]?.[specialty]?.[parameter] ?? ""}
+                  {formatCellTextForSchedule(
+                    schedule[hour][day.value]?.[specialty]?.[parameter] ?? ""
+                  )}
                 </td>
               ))}
             </tr>
